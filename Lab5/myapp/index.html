@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Serwer</title>
+	</head>
+	<body>
+	    <h1>Informacje</h1>
+	    <p>IP Serwera: <span id="ip"></span></p>
+	    <p>Nazwa Serwera: <span id="hostname"></span></p>
+	    <p>Wersja Aplikacji: <span id="version"></span></p>
+
+	    <script>
+		fetch('httpsapi.ipify.org?format=json').then(response => response.json()).then(data => {
+		    document.getElementById("ip").textContent = data.ip;
+		});
+
+		fetch('/etc/hostname').then(response => response.text()).then(data => {
+		    document.getElementById("hostname").textContent = data;
+		});
+
+		fetch('/version.txt').then(response => response.text()).then(data => {
+		    document.getElementById("version").textContent = data;
+		});
+	    </script>
+	</body>
+</html>
+

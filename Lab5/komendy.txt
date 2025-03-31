@@ -1,0 +1,8 @@
+// przejscie na odpowiedni folder
+cd myapp
+
+// build
+sudo docker build -t webapp .
+
+// run
+sudo docker run --rm -it -p 8080:80 webapp
